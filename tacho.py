@@ -1,5 +1,4 @@
-#!/usr/bin/kivy
-# ! /usr/bin/python3
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # vim: ai ts=4 sts=4 et sw=4 nu
 
@@ -160,7 +159,7 @@ class Rpm(Widget):
 
 class TachoApp(App):
     def build(self):
-#        from kivy.uix.slider import Slider
+        from kivy.uix.slider import Slider
 
         def test(*ars):
             tacho.value = s
@@ -174,15 +173,16 @@ class TachoApp(App):
         rpm = Rpm(value=0, size_tacho=256, size_text=19)
 #        box.add_widget(rpm)
 
-        s = uart.readline()
-        s.bin(value=test)
-#        s = Slider(min=0, max=160, value=0)
-#        s.bind(value=test)
-#        box.add_widget(s)
+#        s = uart.readline()
+#        s.bin(value=test)
+        s = Slider(min=0, max=160, value=0)
+        s.bind(value=test)
+        box.add_widget(s)
 
         return box
 
 if __name__ == '__main__':
+    '''
     import serial
 
     try:
@@ -190,7 +190,7 @@ if __name__ == '__main__':
     except:
         print("Failed to connect")
         exit()
-
+'''
     TachoApp().run()
 
-    uart.close()
+#    uart.close()
